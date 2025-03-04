@@ -1,0 +1,13 @@
+﻿@page "/test"
+@inject IJSRuntime JS
+@rendermode InteractiveWebAssembly
+
+<button @onclick="ShowAlert">Visa alert</button>
+
+@code {
+    private async Task ShowAlert()
+    {
+        Console.WriteLine("Försöker anropa showAlert...");
+        await JS.InvokeVoidAsync("showAlert", "Hej från Blazor!");
+    }
+}
